@@ -18,3 +18,16 @@ module "subnet" {
   availability_zone  = var.availability_zone
 }
 
+module "route_table" {
+  source     = "./modules/route-table"
+  vpc_id     = module.vpc.vpc_id
+  internet_gateway_id = module.vpc.internet_gateway_id
+}
+
+module "security_group" {
+  source                  = "./modules/security-group"
+  vpc_id                  = module.vpc.vpc_id
+  security_group_name     = "my-security-group"
+  # Provide other input variables as needed
+}
+
