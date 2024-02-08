@@ -28,6 +28,16 @@ module "security_group" {
   source                  = "./modules/security-group"
   vpc_id                  = module.vpc.vpc_id
   security_group_name     = "my-security-group"
+}
+
+#ec2-instance
+module "ec2_instance" {
+  source          = "./modules/ec2-instance"
+  #vpc_id          = module.vpc.vpc_id
+  subnet_id       = module.subnet.subnet_id
+  instance_type   = var.instance_type
+  ami             = var.ami
   # Provide other input variables as needed
 }
+
 

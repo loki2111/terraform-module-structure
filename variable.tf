@@ -31,3 +31,12 @@ variable "availability_zone" {
 variable "security_group_name" {
   description = "Name of the security group"
 }
+
+#variable for ec2-instance
+variable "instance_type" {
+  description = "Instance type for the EC2 instance"
+}
+
+variable "ami" {
+  description = "AMI ID for the EC2 instance"
+}
